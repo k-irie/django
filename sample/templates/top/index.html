@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サンプルページ：トップ</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>サンプルページ</h1>
+    </header>
+    <main>
+        <table class="calendar">
+            <caption>
+                <h1><span class="month">10月</span><span class="year">2024</span></h1>
+                <div class="navigator"><button class="prev">＜＜</button><button class="next">＞＞</button></div>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="sunday">日</th>
+                    <th class="weekday">月</th>
+                    <th class="weekday">火</th>
+                    <th class="weekday">水</th>
+                    <th class="weekday">木</th>
+                    <th class="weekday">金</th>
+                    <th class="saturday">土</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday prev_month">29</td>
+                    <td class="weekday prev_month">30</td>
+                    <td class="weekday">1</td>
+                    <td class="weekday">2</td>
+                    <td class="weekday">3</td>
+                    <td class="weekday">4</td>
+                    <td class="saturday">5</td>
+                </tr>
+                <tr>
+                    <td class="sunday">6</td>
+                    <td class="weekday">7</td>
+                    <td class="weekday">8</td>
+                    <td class="weekday">9</td>
+                    <td class="weekday">10</td>
+                    <td class="weekday">11</td>
+                    <td class="saturday">12</td>
+                </tr>
+                <tr>
+                    <td class="sunday">13</td>
+                    <td class="weekday">14</td>
+                    <td class="weekday today">15</td>
+                    <td class="weekday">16</td>
+                    <td class="weekday">17</td>
+                    <td class="weekday">18</td>
+                    <td class="saturday">19</td>
+                </tr>
+                <tr>
+                    <td class="sunday">20</td>
+                    <td class="weekday">21</td>
+                    <td class="weekday">22</td>
+                    <td class="weekday">23</td>
+                    <td class="weekday">24</td>
+                    <td class="weekday">25</td>
+                    <td class="saturday">26</td>
+                </tr>
+                <tr>
+                    <td class="sunday">27</td>
+                    <td class="weekday">28</td>
+                    <td class="weekday">29</td>
+                    <td class="weekday">30</td>
+                    <td class="weekday">31</td>
+                    <td class="weekday next_month">1</td>
+                    <td class="saturday next_month">2</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
