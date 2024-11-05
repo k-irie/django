@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+html {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 16pt;
+}
+
+h1 {
+    margin: 0;
+    background-color: red;
+    color: white;
+    padding: 0.2em;
+}
+
+.menu {
+    font-size: 0.8em;
+}
+
+.menu ul {
+    list-style-type: none;
+
+    margin: 0;
+    padding-inline-start: 0;
+
+    display: flex;
+    justify-content: right;
+
+    background-color: darkred;
+    color: antiquewhite;
+}
+
+.menu li {
+    padding: 0.4em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* 外側のエレメントの色を引き継ぐ */
+}
+
+.menu {
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: inherit;
+    }
+
+    a:hover {
+        background-color: red;
+    }
+}
+
+/* .menu a:link,
+.menu a:visited,
+.menu a:hover,
+.menu a:active {
+    color: inherit;
+} 
+.menu a:hover {
+    background-color: red;
+} */
+
+
+footer {
+    background-color: brown;
+    color: bisque;
+    text-align: right;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    
+    padding: 0.2em;
+}
