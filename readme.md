@@ -21,3 +21,5 @@ cd private_diary
 
 2．アプリを作成する
 python manage.py startapp diary
+
+TOP Branch作成
