@@ -23,3 +23,6 @@ cd private_diary
 python manage.py startapp diary
 
 TOP Branch作成
+
+
+メンバ1 ブランチ作成
