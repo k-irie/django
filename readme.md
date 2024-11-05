@@ -21,3 +21,7 @@ cd private_diary
 
 2．アプリを作成する
 python manage.py startapp diary
+
+
+
+メンバ1 ブランチ作成
