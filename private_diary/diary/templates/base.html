@@ -12,14 +12,14 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
     <!-- Google 日本語フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Kiwi+Maru&family=M+PLUS+1+Code:wght@100..700&family=M+PLUS+1:wght@100..900&family=Yomogi&family=Yusei+Magic&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
         </footer>
     </div>
     <!-- JavaScript -->
-    <script src="index.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 
 </html>
