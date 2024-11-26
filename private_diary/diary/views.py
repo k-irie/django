@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import TemplateView
 
