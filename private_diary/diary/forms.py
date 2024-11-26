@@ -3,6 +3,9 @@ from django import forms
 # Djangoで用意されているメールを送信する機能
 from django.core.mail import EmailMessage
 
+# 環境変数を参照する
+import os
+
 # Pythonクラスで入力フォールのデータを定義している
 # MVCモデルのM(odel)を表している
 class InquiryForm (forms.Form):
@@ -35,5 +38,35 @@ class InquiryForm (forms.Form):
 
     # メール送信メソッドを追加する
     def send_mail(self) :
-        
+        # 入力されたデータを取り出す
+        name = self.cleaned_data['name']
+        email = self.cleaned_data['email']
+        title = self.cleaned_data['title']
+        message = self.cleaned_data['message']
 
+        # メール内容を組み立てる
+        #   件名
+        subject = f'お問い合わせ{title}'
+        #   メール本文
+        body = f'送信者名:{name}\nメールアドレス:{email}\nメッセージ:\n{message}'
+        #   送信元メールアドレス OSの環境変数を参照する
+        from_email = os.environ.get('FROM_EMAIL')
+        #   送信先メールアドレス一覧
+        #       to:
+        to_list = [
+            from_email,
+        ]
+        #       cc :
+        cc_list = [
+            email,
+        ]
+        #       bcc :
+        bcc_list = [
+            'foo@woo.com',
+        ]
+
+        # 送信するメール情報を組み立てる
+        emsg = EmailMessage(subject=subject,body=body,
+                            from_email=from_email,to=to_list,cc=cc_list,bcc=bcc_list)
+        # メールを送信する
+        emsg.send()

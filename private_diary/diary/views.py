@@ -29,7 +29,7 @@ class InquiryView(generic.FormView):
 
     # メソッドのオーバーライド
     #   フォームに正しい値が入力され送信された時の処理
-    def form_valid(self, form: Any) -> HttpResponse:
+    def form_valid(self, form) :
         # メールを送信する
         form.send_mail()
         # 送信したことをログに残す
