@@ -39,6 +39,20 @@ nav ul {
     justify-content:right;
 }
 
+div.messages {
+    font-weight: bold;
+    line-height: 94%;
+}
+
+div.messages.success {
+    color:antiquewhite
+}
+
+div.messages ul {
+    list-style: none;
+    margin-block: 0.5em;
+}
+
 nav li {}
 
 

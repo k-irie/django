@@ -46,6 +46,16 @@ INSTALLED_APPS = [
     # アプリケーションを追加する
     #   diaryアプリケーション内のクラス
     'diary.apps.DiaryConfig',
+    #   accountsアプリケーション内のクラスを指定
+    'accounts.apps.AccountsConfig',
+
+    # 認証用拡張機能追加
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+
+    # Django bootstrap5機能追加
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +66,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # django-allauthで必要なミドルウエア
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
 
 ROOT_URLCONF = 'private_diary.urls'
 
@@ -89,6 +102,8 @@ DATABASES = {
     }
 }
 
+#
+AUTH_USER_MODEL = 'accounts.CustumUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -108,6 +123,34 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# サイト識別用ID
+SITE_ID = 1
+
+# 認証用バックエンド処理
+AUTHENTICATION_BACKENDS = (
+    # メールアドレスによる認証(一般ユーザ用)
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ユーザ名認証(管理サイト用)
+    'django.contrib.auth.backends.ModelBackends',
+)
+
+# メールアドレスによる認証
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# 認証にユーザ名が必要か?
+ACCOUNT_USERNAME_REQUIERD = False
+
+# サインアップ時にメールアドレス確認を挟むように設定
+ACCOUNT_EMAIL_VARIFICATION = 'mandatoy'
+ACCOUNT_EMAIL_REQUIRED = True
+
+# ログイン後に移動する先
+LOGIN_REDIRECT_URL = 'diary:index'
+# ログアウト後に移動する
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+ACCOUNT_LOGOUT_ON_GET = True
+
+AURHENTICATION_EMAIL_SUBJECT_PREFIX = ""
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

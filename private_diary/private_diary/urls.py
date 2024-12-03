@@ -26,4 +26,5 @@ urlpatterns = [
     # 第一引数はURI上のアプリのフォルダ示す
     #   '' はトップフォルダとなる
     path('',include('diary.urls')),
+    path('accounts/',include('allauth.urls'))
 ]

@@ -34,14 +34,27 @@
             <div class="menu">
                 <ul>
                     <li><a href="{% url 'diary:inquiry' %}">お問い合わせ</a>　</li>
-                    <li><a href="#">Sign up</a>　</li>
-                    <li><a href="#">Log in</a></li>
+                    <li><a href="{% url 'account_signup' %}">Sign up</a>　</li>
+                    <li><a href="{% url 'account_login' %}">Log in</a></li>
                 </ul>
             </div>
         </nav>
 
         <!-- Header -->
         {% block header %}{% endblock %}
+
+        <!-- メッセージブロック -->
+        {% if messages %}
+        <div class="messages success">
+            <ul>
+                {% for message in messages %}
+                <li {% if mesage.tags %} class="{{ message.tag }}" {% endif %}>
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
 
         <!-- Contents -->
         {% block contents %}{% endblock %}
