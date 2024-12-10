@@ -137,10 +137,10 @@ AUTHENTICATION_BACKENDS = (
 # メールアドレスによる認証
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # 認証にユーザ名が必要か?
-ACCOUNT_USERNAME_REQUIERD = False
+ACCOUNT_USERNAME_REQUIRED = False
 
 # サインアップ時にメールアドレス確認を挟むように設定
-ACCOUNT_EMAIL_VARIFICATION = 'mandatoy'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
 # ログイン後に移動する先
