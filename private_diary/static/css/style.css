@@ -8,7 +8,8 @@ html {
 }
 
 body {
-    background-image: url(../image/wall.jpg);
+    background-image: url(../images/wall.jpg);
+    color: azure;
 }
 
 nav {

@@ -131,7 +131,7 @@ AUTHENTICATION_BACKENDS = (
     # メールアドレスによる認証(一般ユーザ用)
     'allauth.account.auth_backends.AuthenticationBackend',
     # ユーザ名認証(管理サイト用)
-    'django.contrib.auth.backends.ModelBackends',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # メールアドレスによる認証
@@ -150,7 +150,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 ACCOUNT_LOGOUT_ON_GET = True
 
-AURHENTICATION_EMAIL_SUBJECT_PREFIX = ""
+AUTHENTICATION_EMAIL_SUBJECT_PREFIX = ""
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
