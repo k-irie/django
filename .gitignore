@@ -8,3 +8,8 @@ __pycache__/
 
 # MacOSの管理ファイル
 .DS_Store
+
+# pillowとmediaフォルダをGitの対象外とする
+pillow/
+# アップロードした画像を保存するディレクトリ
+media/
