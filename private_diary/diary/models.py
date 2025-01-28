@@ -5,8 +5,14 @@ from accounts.models import CustumUser
 
 # Create your models here.
 
+# 新しいモデルを定義した後にマイグレーションを実行する
+# cd private_diary
+# python .\manage.py makemigrations
+# python .\manage.py migrate
 
 # 日記投稿用モデル
+# Diaryクラスを定義する
+#   class クラス名(継承元クラス) : 
 class Diary(models.Model):
     # データベースへのフィールド定義
     #   SQLのUPDATE、INSERT INTOでの型定義
@@ -25,11 +31,13 @@ class Diary(models.Model):
     create_at = models.DateTimeField(verbose_name='作成日時',auto_now_add=True)
     update_at = models.DateTimeField(verbose_name='更新日時',auto_now=True)
 
-
+    # このクラスの名称を定義している
     class Meta:
         verbose_name_plural = 'Diary'
 
-    // オブジェクトを文字列として表す場合の文字列パターン
+    # オブジェクトを文字列として表す場合の文字列パターン
+    # Objectクラスに定義されているメソッド 全てのクラスに存在する
+    # →オーバライドして自分のクラスにあった文字列を返すようにする
+    # def __str__(self):
     def __str__(self):
         return self.title
-    

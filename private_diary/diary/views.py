@@ -57,7 +57,7 @@ from django.core.paginator import Page
 class DiaryListView(LoginRequiredMixin,generic.ListView) :
     model = Diary
     template_name = 'diary_list.html'
-    paginate_by = 1
+    paginate_by = 2
 
     # 問い合わせ条件を設定する
     # ※今回は全行ではなくログインしている人の日記のみが対象となる
@@ -69,12 +69,8 @@ class DiaryListView(LoginRequiredMixin,generic.ListView) :
         return diaries
         # return super().get_queryset()
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #         context = super().get_context_data(**kwargs)
-    #         page: Page = context["page_obj"]
-    #         # get_elided_page_rangeの結果を、paginator_range変数から使用可能
-    #         context["paginator_range"] = page.paginator.get_elided_page_range(
-    #                                                         page.number,
-    #                                                         on_each_side=2,
-    #                                                         on_ends=1)
-    #         return context
+# 日記を1件表示するビュー
+#   DetailViewではpk変数で主キーを受け取る
+class DiaryDetailView(LoginRequiredMixin,generic.DetailView):
+    model = Diary
+    template_name = 'diary_detail.html'

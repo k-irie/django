@@ -83,3 +83,30 @@ form.inquiry label span {
     /* background-color: antiquewhite; */
     color: antiquewhite;
 }
+
+ul.pagination {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    font-size: 2em;
+}
+
+/* 現在表示しているページ番号に下線を引く */
+ul.pagination .active{
+    /* text-decoration: underline solid lightblue; */
+    border-bottom: solid lightblue 3px;
+}
+
+.diary_detail section {
+    display: flex;
+}
+
+.diary_detail .label {
+    width: 5em;
+}
+
+.no_image {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
