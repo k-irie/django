@@ -47,3 +47,34 @@ class InquiryView(generic.FormView):
         logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
 
         return super().form_valid(form)
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Diary
+from django.core.paginator import Page
+
+# 日記一覧
+#   ログインが必要で尚且つ一覧表示するViewを継承する
+class DiaryListView(LoginRequiredMixin,generic.ListView) :
+    model = Diary
+    template_name = 'diary_list.html'
+    paginate_by = 1
+
+    # 問い合わせ条件を設定する
+    # ※今回は全行ではなくログインしている人の日記のみが対象となる
+    def get_queryset(self):
+        # Diaryテーブルから条件に当てはまる行を抽出する
+        #   ログインユーザの日記のみを抽出する
+        #   登録日付の降順に並び替える
+        diaries = Diary.objects.filter(user=self.request.user).order_by('-create_at')
+        return diaries
+        # return super().get_queryset()
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #         context = super().get_context_data(**kwargs)
+    #         page: Page = context["page_obj"]
+    #         # get_elided_page_rangeの結果を、paginator_range変数から使用可能
+    #         context["paginator_range"] = page.paginator.get_elided_page_range(
+    #                                                         page.number,
+    #                                                         on_each_side=2,
+    #                                                         on_ends=1)
+    #         return context
