@@ -14,4 +14,6 @@ urlpatterns = [
     path("diary-list/", views.DiaryListView.as_view(), name="diary_list"),
     path("diary_detail/<int:pk>", views.DiaryDetailView.as_view(), name="diary_detail"),
     # <int:pk>はモデル「Diary」クラスで用意されている 主キー値
+    path('dialy-create/',views.DiaryCreateView.as_view(),name="diary_create"),
+    # path('diary-update/<int:pk>/',views.Dai)
 ]

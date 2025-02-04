@@ -45,6 +45,6 @@
         <p class="label">更新日時</p>
         <p>{{ object.update_at }}</p>
     </section>
-
+    <a href="{% url 'diary:diary_update' object.pk %}">編集</a>
 </div>
 {% endblock %}

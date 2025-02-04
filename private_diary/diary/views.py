@@ -77,20 +77,28 @@ class DiaryDetailView(LoginRequiredMixin,generic.DetailView):
 
 # 日記を作成するビュー
 from .forms import DiaryCreateForm
+# LoginRequiredMixin を継承することによりログインを必要とするビューとなる
+# generic.CreateView を継承することによりデータを追加するビューとなる
 class DiaryCreateView(LoginRequiredMixin,generic.CreateView):
     model = Diary
     template_name = 'diary_create.html'
     form_class =  DiaryCreateForm
+    # 登録成功時に表示するページのurl
     success_url = reverse_lazy('diary:diary_list')
 
+    # 登録成功時の処理
     def form_valid(self,form):
         diary = form.save(commit=False)
+        # 入力したユーザ情報を保存データに付与する
         diary.user = self.request.user
+        # データを保存する
         diary.save()
 
+        # 全て完了したのでテンプレートに送るメッセージをセットする
         messages.success(self.request,'日記を作成しました。')
         return super().form_valid(form)
     
+    # なにかの問題で登録が出来なかった場合の処理
     def form_invalid(self, form):
         messages.success(self.request,'日記を作成に失敗しました。')
         return super().form_invalid(form)

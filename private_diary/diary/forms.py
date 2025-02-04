@@ -71,7 +71,8 @@ class InquiryForm (forms.Form):
         # メールを送信する
         emsg.send()
 
-from models import Diary
+# .models 同一フォルダ内のmodels.pyを参照する
+from .models import Diary
 
 # 日記入力フォーム定義
 class DiaryCreateForm(forms.ModelForm):
@@ -87,7 +88,7 @@ class DiaryCreateForm(forms.ModelForm):
     def __init__(self, *args , ** kwargs):
         # スーパークラスのコンストラクタを呼ぶ
         # → HTMLの基本形が作られる
-        super.__init__(*args,**kwargs)
+        super().__init__(*args,**kwargs)
         # 出来た入力エレメントにclass属性を割り当てる
-        for field in self.fields :
-            field.widget.attrs['class'] = 'from-control'
+        for field in self.fields.values() :
+            field.widget.attrs['class'] = 'form-control'
